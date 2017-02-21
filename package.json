@@ -1,0 +1,43 @@
+{
+  "name": "simple-ng-websocket",
+  "version": "0.1.0",
+  "description": "Simple WebSocket client for Angular2+",
+  "keywords": [ "WebSocket", "Angular" ],
+  "homepage": "https://github.com/ktanakaj/simple-ng-websocket",
+  "bugs": "https://github.com/ktanakaj/simple-ng-websocket/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Koichi Tanaka",
+    "email": "ktanakaj@users.noreply.github.com",
+    "url": "https://github.com/ktanakaj"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ktanakaj/simple-ng-websocket.git"
+  },
+  "scripts": {
+    "build": "npm run clean-app && tsc --outDir ./",
+    "watch": "npm run clean-app && tsc --watch --outDir ./",
+    "test": "NODE_ENV=test npm run build && mocha --compilers ts:espower-typescript/guess --recursive ./test",
+    "doc": "npm run clean-doc && typedoc ./index.ts --out ./doc --mode file",
+    "clean": "npm run clean-app & npm run clean-doc",
+    "clean-app": "rm -f ./index.js ./index.js.map ./index.d.ts",
+    "clean-doc": "rm -rf ./doc",
+    "tslint": "tslint ./index.ts ./test"
+  },
+  "dependencies": {
+    "@angular/core": ">=2.0.0",
+    "rxjs": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.35",
+    "@types/power-assert": "^1.4.29",
+    "espower-typescript": "^7.0.0",
+    "mocha": "^3.2.0",
+    "power-assert": "^1.4.1",
+    "tslint": "^4.2.0",
+    "typedoc": "^0.5.3",
+    "typescript": "^2.1.4"
+  }
+}

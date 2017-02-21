@@ -1,0 +1,15 @@
+.project
+.settings
+.idea
+.vs
+.vscode
+*.bak
+*.log
+*.sln
+*.suo
+*.njsproj
+*.dll
+coverage
+node_modules
+doc
+!.gitkeep
