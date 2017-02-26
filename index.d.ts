@@ -15,17 +15,17 @@ export declare class SimpleNgWebSocket extends EventEmitter {
     emit(event: 'open', ev: Event, ngws: SimpleNgWebSocket): boolean;
     emit(event: 'message', ev: MessageEvent, ngws: SimpleNgWebSocket): boolean;
     emit(event: 'close', ev: CloseEvent, ngws: SimpleNgWebSocket): boolean;
-    emit(event: 'error', ev: ErrorEvent, ngws: SimpleNgWebSocket): boolean;
+    emit(event: 'error', ev: Event, ngws: SimpleNgWebSocket): boolean;
     on(event: 'open', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
     on(event: 'message', listener: (ev: MessageEvent, ngws: SimpleNgWebSocket) => void): this;
     on(event: 'close', listener: (ev: CloseEvent, ngws: SimpleNgWebSocket) => void): this;
-    on(event: 'error', listener: (ev: ErrorEvent, ngws: SimpleNgWebSocket) => void): this;
+    on(event: 'error', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
     once(event: 'open', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
     once(event: 'message', listener: (ev: MessageEvent, ngws: SimpleNgWebSocket) => void): this;
     once(event: 'close', listener: (ev: CloseEvent, ngws: SimpleNgWebSocket) => void): this;
-    once(event: 'error', listener: (ev: ErrorEvent, ngws: SimpleNgWebSocket) => void): this;
+    once(event: 'error', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
     removeListener(event: 'open', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
     removeListener(event: 'message', listener: (ev: MessageEvent, ngws: SimpleNgWebSocket) => void): this;
     removeListener(event: 'close', listener: (ev: CloseEvent, ngws: SimpleNgWebSocket) => void): this;
-    removeListener(event: 'error', listener: (ev: ErrorEvent, ngws: SimpleNgWebSocket) => void): this;
+    removeListener(event: 'error', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
 }
