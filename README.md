@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/ktanakaj/simple-ng-websocket.svg?branch=master)](https://travis-ci.org/ktanakaj/simple-ng-websocket)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-This is simple WebSocket client for [Angular2+](https://angular.io/). simple-ng-websocket is thin wrap Browser's [WebSocket](https://developer.mozilla.org/en/docs/Web/API/WebSocket).
+This is simple WebSocket client for [Angular2+](https://angular.io/). simple-ng-websocket is thin wrapper at Browser's [WebSocket](https://developer.mozilla.org/en/docs/Web/API/WebSocket).
 
 ## Install
 To install simple-ng-websocket in the current directory, run:
