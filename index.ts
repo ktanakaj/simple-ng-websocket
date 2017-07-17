@@ -115,21 +115,21 @@ export class SimpleNgWebSocket extends EventEmitter {
 	on(event: 'message', listener: (ev: MessageEvent, ngws: SimpleNgWebSocket) => void): this;
 	on(event: 'close', listener: (ev: CloseEvent, ngws: SimpleNgWebSocket) => void): this;
 	on(event: 'error', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
-	on(event: string | symbol, listener: Function): this {
+	on(event: string | symbol, listener: (...args: any[]) => void): this {
 		return super.on(event, listener);
 	}
 	once(event: 'open', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
 	once(event: 'message', listener: (ev: MessageEvent, ngws: SimpleNgWebSocket) => void): this;
 	once(event: 'close', listener: (ev: CloseEvent, ngws: SimpleNgWebSocket) => void): this;
 	once(event: 'error', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
-	once(event: string | symbol, listener: Function): this {
+	once(event: string | symbol, listener: (...args: any[]) => void): this {
 		return super.once(event, listener);
 	}
 	removeListener(event: 'open', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
 	removeListener(event: 'message', listener: (ev: MessageEvent, ngws: SimpleNgWebSocket) => void): this;
 	removeListener(event: 'close', listener: (ev: CloseEvent, ngws: SimpleNgWebSocket) => void): this;
 	removeListener(event: 'error', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
-	removeListener(event: string | symbol, listener: Function): this {
+	removeListener(event: string | symbol, listener: (...args: any[]) => void): this {
 		return super.removeListener(event, listener);
 	}
 }

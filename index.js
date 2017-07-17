@@ -100,12 +100,12 @@ var SimpleNgWebSocket = (function (_super) {
     SimpleNgWebSocket.prototype.removeListener = function (event, listener) {
         return _super.prototype.removeListener.call(this, event, listener);
     };
+    SimpleNgWebSocket = __decorate([
+        core_1.Injectable(),
+        __param(0, core_1.Inject(exports.CONNECT_URL)), __param(0, core_1.Optional()), __param(1, core_1.Inject(exports.LOGGER)), __param(1, core_1.Optional()),
+        __metadata("design:paramtypes", [String, Function])
+    ], SimpleNgWebSocket);
     return SimpleNgWebSocket;
 }(events_1.EventEmitter));
-SimpleNgWebSocket = __decorate([
-    core_1.Injectable(),
-    __param(0, core_1.Inject(exports.CONNECT_URL)), __param(0, core_1.Optional()), __param(1, core_1.Inject(exports.LOGGER)), __param(1, core_1.Optional()),
-    __metadata("design:paramtypes", [String, Function])
-], SimpleNgWebSocket);
 exports.SimpleNgWebSocket = SimpleNgWebSocket;
 //# sourceMappingURL=index.js.map
