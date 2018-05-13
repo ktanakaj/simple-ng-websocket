@@ -3,16 +3,16 @@
  * @module ./index
  */
 import { EventEmitter } from 'events';
-import { Injectable, Inject, Optional, OpaqueToken } from '@angular/core';
+import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
 
 /**
  * Connection URL DI Token.
  */
-export const CONNECT_URL = new OpaqueToken('connectUrl');
+export const CONNECT_URL = new InjectionToken<string>('connectUrl');
 /**
  * Logger DI Token.
  */
-export const LOGGER = new OpaqueToken('logger');
+export const LOGGER = new InjectionToken<string>('logger');
 
 /**
  * Simple WebSocket client class for Angular2+.
