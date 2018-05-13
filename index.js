@@ -24,8 +24,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var events_1 = require("events");
 var core_1 = require("@angular/core");
-exports.CONNECT_URL = new core_1.OpaqueToken('connectUrl');
-exports.LOGGER = new core_1.OpaqueToken('logger');
+exports.CONNECT_URL = new core_1.InjectionToken('connectUrl');
+exports.LOGGER = new core_1.InjectionToken('logger');
 var SimpleNgWebSocket = (function (_super) {
     __extends(SimpleNgWebSocket, _super);
     function SimpleNgWebSocket(url, logger) {

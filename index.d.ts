@@ -1,8 +1,8 @@
 /// <reference types="node" />
 import { EventEmitter } from 'events';
-import { OpaqueToken } from '@angular/core';
-export declare const CONNECT_URL: OpaqueToken;
-export declare const LOGGER: OpaqueToken;
+import { InjectionToken } from '@angular/core';
+export declare const CONNECT_URL: InjectionToken<string>;
+export declare const LOGGER: InjectionToken<string>;
 export declare class SimpleNgWebSocket extends EventEmitter {
     url: string;
     ws: WebSocket;
