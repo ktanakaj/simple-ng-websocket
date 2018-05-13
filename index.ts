@@ -34,7 +34,7 @@ export class SimpleNgWebSocket extends EventEmitter {
 	 * @param url 接続先URL。
 	 * @param logger ロガー。
 	 */
-	constructor( @Inject(CONNECT_URL) @Optional() url?: string, @Inject(LOGGER) @Optional() logger?: (level, message) => void) {
+	constructor(@Inject(CONNECT_URL) @Optional() url?: string, @Inject(LOGGER) @Optional() logger?: (level, message) => void) {
 		// URLが渡されなかった場合は、自分のサーバーに接続
 		super();
 		if (!url) {
