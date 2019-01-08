@@ -1,5 +1,5 @@
 /**
- * Simple WebSocket client for Angular2+.
+ * Simple WebSocket client for Angular4+.
  * @module ./index
  */
 import { EventEmitter } from 'events';
@@ -15,24 +15,24 @@ export const CONNECT_URL = new InjectionToken<string>('connectUrl');
 export const LOGGER = new InjectionToken<string>('logger');
 
 /**
- * Simple WebSocket client class for Angular2+.
+ * Simple WebSocket client class for Angular4+.
  */
 @Injectable()
 export class SimpleNgWebSocket extends EventEmitter {
-	/** Connection URL */
+	/** The URL of the WebSocket server. */
 	url: string;
-	/** WebSocket raw connection */
+	/** The connection instance of the raw WebSocket. */
 	ws: WebSocket;
 	/** Logger */
 	logger: (level, message) => void;
 
-	/** WebSocket送信データのキュー */
+	/** Sending message queue */
 	private queue = [];
 
 	/**
-	 * 設定をDIしてコンポーネントを生成する。
-	 * @param url 接続先URL。
-	 * @param logger ロガー。
+	 * Create a new websocket connection.
+	 * @param url The URL to which to connect.
+	 * @param logger The logger for this client's log event such as OPEN, CLOSE, SEND, RECEIVE and ERROR.
 	 */
 	constructor(@Inject(CONNECT_URL) @Optional() url?: string, @Inject(LOGGER) @Optional() logger?: (level, message) => void) {
 		// URLが渡されなかった場合は、自分のサーバーに接続
@@ -50,10 +50,11 @@ export class SimpleNgWebSocket extends EventEmitter {
 	}
 
 	/**
-	 * WebSocket接続を開始する。
+	 * Open a new websocket connection.
 	 */
 	connect(): void {
 		// 接続と同時に各種イベントのハンドラーを登録
+		this.close();
 		this.ws = new WebSocket(this.url);
 		this.ws.onopen = (ev) => {
 			this.logger('info', 'OPEN');
@@ -75,9 +76,20 @@ export class SimpleNgWebSocket extends EventEmitter {
 	}
 
 	/**
-	 * Send message.
-	 * @param message メッセージ。
-	 * @param toJson JSONエンコードする場合true。デフォルトtrue。
+	 * Close the websocket connection.
+	 * @param code A numeric value indicating the status code explaining why the connection is being closed.
+	 * @param reason A human-readable string explaining why the connection is closing.
+	 */
+	close(code?: number, reason?: string): void {
+		if (this.ws) {
+			this.ws.close(code, reason);
+		}
+	}
+
+	/**
+	 * Sends message through the connection. If the connection was not opend, send() call connect() automatically.
+	 * @param message The data to send to the server.
+	 * @param toJson Specifies whether message should be JSON.stringify() or not. Defaults to true.
 	 */
 	send(message: any, toJson: boolean = true): void {
 		if (toJson) {
@@ -93,7 +105,7 @@ export class SimpleNgWebSocket extends EventEmitter {
 	}
 
 	/**
-	 * キューに格納されているメッセージを送信する。
+	 * Send message in the queue.
 	 */
 	private fireQueue(): void {
 		while (this.queue.length > 0) {

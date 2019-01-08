@@ -86,8 +86,14 @@ Emitted when an error occurs. `ev` is through from Browser's `WebSocket`.
 #### ngws.connect()
 Open a new websocket connection.
 
+#### ngws.close()
+* `code` {Number} A numeric value indicating the status code explaining why the connection is being closed.
+* `reason` {String} A human-readable string explaining why the connection is closing.
+
+Close the websocket connection.
+
 #### ngws.send(message[, toJson])
-* `message` {String} The message to send.
+* `message` {String} The data to send to the server.
 * `toJson` {Boolean} Specifies whether message should be `JSON.stringify()` or not. Defaults to true.
 
 Sends `message` through the connection. If the connection was not opend, `send()` call `connect()` automatically.
