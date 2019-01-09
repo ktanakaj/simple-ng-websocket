@@ -45,6 +45,7 @@ var SimpleNgWebSocket = (function (_super) {
     }
     SimpleNgWebSocket.prototype.connect = function () {
         var _this = this;
+        this.close();
         this.ws = new WebSocket(this.url);
         this.ws.onopen = function (ev) {
             _this.logger('info', 'OPEN');
@@ -63,6 +64,11 @@ var SimpleNgWebSocket = (function (_super) {
             _this.logger('error', "ERROR");
             _this.emit('error', ev, _this);
         };
+    };
+    SimpleNgWebSocket.prototype.close = function (code, reason) {
+        if (this.ws) {
+            this.ws.close(code, reason);
+        }
     };
     SimpleNgWebSocket.prototype.send = function (message, toJson) {
         if (toJson === void 0) { toJson = true; }

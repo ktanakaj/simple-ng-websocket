@@ -10,6 +10,7 @@ export declare class SimpleNgWebSocket extends EventEmitter {
     private queue;
     constructor(url?: string, logger?: (level, message) => void);
     connect(): void;
+    close(code?: number, reason?: string): void;
     send(message: any, toJson?: boolean): void;
     private fireQueue();
     emit(event: 'open', ev: Event, ngws: SimpleNgWebSocket): boolean;
