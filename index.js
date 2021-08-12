@@ -1,9 +1,14 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -21,7 +26,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SimpleNgWebSocket = exports.LOGGER = exports.CONNECT_URL = void 0;
 var events_1 = require("events");
 var core_1 = require("@angular/core");
 exports.CONNECT_URL = new core_1.InjectionToken('connectUrl');
@@ -95,7 +106,7 @@ var SimpleNgWebSocket = (function (_super) {
         for (var _i = 1; _i < arguments.length; _i++) {
             args[_i - 1] = arguments[_i];
         }
-        return _super.prototype.emit.apply(this, [event].concat(args));
+        return _super.prototype.emit.apply(this, __spreadArray([event], args));
     };
     SimpleNgWebSocket.prototype.on = function (event, listener) {
         return _super.prototype.on.call(this, event, listener);
@@ -108,7 +119,10 @@ var SimpleNgWebSocket = (function (_super) {
     };
     SimpleNgWebSocket = __decorate([
         core_1.Injectable(),
-        __param(0, core_1.Inject(exports.CONNECT_URL)), __param(0, core_1.Optional()), __param(1, core_1.Inject(exports.LOGGER)), __param(1, core_1.Optional()),
+        __param(0, core_1.Inject(exports.CONNECT_URL)),
+        __param(0, core_1.Optional()),
+        __param(1, core_1.Inject(exports.LOGGER)),
+        __param(1, core_1.Optional()),
         __metadata("design:paramtypes", [String, Function])
     ], SimpleNgWebSocket);
     return SimpleNgWebSocket;
