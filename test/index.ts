@@ -14,7 +14,7 @@ describe("SimpleNgWebSocket", () => {
 					setTimeout(() => this.onopen(<any>url), 10);
 				}
 				onopen(ev: Event) { }
-			};
+			} as any;
 			const ngws = new SimpleNgWebSocket('ws://example.com/ws-api');
 			ngws.on('open', (ev, ngws2) => {
 				assert.equal(ev, 'ws://example.com/ws-api');
@@ -31,7 +31,7 @@ describe("SimpleNgWebSocket", () => {
 				send(message: any) {
 					messages.push(message);
 				}
-			};
+			} as any;
 			const ngws = new SimpleNgWebSocket('ws://example.com/ws-api');
 			ngws.send('test message1');
 			ngws.send('test message2', false);
@@ -50,7 +50,7 @@ describe("SimpleNgWebSocket", () => {
 					setTimeout(() => this.onmessage(<any>'dummy'), 10);
 				}
 				onmessage(ev: MessageEvent) { }
-			};
+			} as any;
 			const ngws = new SimpleNgWebSocket('ws://example.com/ws-api');
 			ngws.on('message', (ev, ngws2) => {
 				assert.equal(ev, 'dummy');
@@ -66,7 +66,7 @@ describe("SimpleNgWebSocket", () => {
 					setTimeout(() => this.onclose(<any>'dummy'), 10);
 				}
 				onclose(ev: CloseEvent) { }
-			};
+			} as any;
 			const ngws = new SimpleNgWebSocket('ws://example.com/ws-api');
 			ngws.on('close', (ev, ngws2) => {
 				assert.equal(ev, 'dummy');
@@ -82,7 +82,7 @@ describe("SimpleNgWebSocket", () => {
 					setTimeout(() => this.onerror(<any>'dummy'), 10);
 				}
 				onerror(ev: Event) { }
-			};
+			} as any;
 			const ngws = new SimpleNgWebSocket('ws://example.com/ws-api');
 			ngws.on('error', (ev, ngws2) => {
 				assert.equal(ev, 'dummy');
