@@ -6,9 +6,9 @@ export declare const LOGGER: InjectionToken<string>;
 export declare class SimpleNgWebSocket extends EventEmitter {
     url: string;
     ws: WebSocket;
-    logger: (level: any, message: any) => void;
+    logger: (level: string, message: string) => void;
     private queue;
-    constructor(url?: string, logger?: (level: any, message: any) => void);
+    constructor(url?: string, logger?: (level: string, message: string) => void);
     connect(): void;
     close(code?: number, reason?: string): void;
     send(message: any, toJson?: boolean): void;
