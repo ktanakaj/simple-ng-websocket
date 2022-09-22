@@ -1,0 +1,20 @@
+# GitHub Actionsによる自動テスト設定。
+# pushされたタイミングで自動テストを流す。
+name: Test
+
+on:
+  push:
+
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run: npm install
+      - run: npm test
+      - run: npm run tslint
