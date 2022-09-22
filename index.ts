@@ -24,7 +24,7 @@ export class SimpleNgWebSocket extends EventEmitter {
 	/** The connection instance of the raw WebSocket. */
 	ws: WebSocket;
 	/** Logger */
-	logger: (level, message) => void;
+	logger: (level: string, message: string) => void;
 
 	/** Sending message queue */
 	private queue = [];
@@ -34,7 +34,7 @@ export class SimpleNgWebSocket extends EventEmitter {
 	 * @param url The URL to which to connect.
 	 * @param logger The logger for this client's log event such as OPEN, CLOSE, SEND, RECEIVE and ERROR.
 	 */
-	constructor(@Inject(CONNECT_URL) @Optional() url?: string, @Inject(LOGGER) @Optional() logger?: (level, message) => void) {
+	constructor(@Inject(CONNECT_URL) @Optional() url?: string, @Inject(LOGGER) @Optional() logger?: (level: string, message: string) => void) {
 		// URLが渡されなかった場合は、自分のサーバーに接続
 		super();
 		if (!url) {

@@ -25,7 +25,7 @@ describe("SimpleNgWebSocket", () => {
 
 		it('should send messages', () => {
 			// グローバルのWebSocketを無理やりモックに置き換えてテスト
-			let messages = [];
+			let messages: any[] = [];
 			global['WebSocket'] = class {
 				redayState: number = WebSocket.OPEN;
 				send(message: any) {
