@@ -16,5 +16,5 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm install
-      - run: npm test
-      - run: npm run tslint
+      - run: npm test -- --browsers=ChromeHeadless --watch=false
+      - run: npm run lint

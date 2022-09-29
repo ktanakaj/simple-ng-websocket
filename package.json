@@ -1,6 +1,23 @@
 {
   "name": "simple-ng-websocket",
-  "version": "0.0.0",
+  "version": "0.3.0",
+  "description": "Simple WebSocket client for Angular",
+  "keywords": [
+    "WebSocket",
+    "Angular"
+  ],
+  "homepage": "https://github.com/ktanakaj/simple-ng-websocket",
+  "bugs": "https://github.com/ktanakaj/simple-ng-websocket/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Koichi Tanaka",
+    "email": "ktanakaj@users.noreply.github.com",
+    "url": "https://github.com/ktanakaj"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ktanakaj/simple-ng-websocket.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
