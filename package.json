@@ -1,6 +1,6 @@
 {
   "name": "simple-ng-websocket",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Simple WebSocket client for Angular",
   "keywords": [
     "WebSocket",
@@ -21,7 +21,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && cp README.md ./dist/simple-ng-websocket/ && cp LICENSE ./dist/simple-ng-websocket/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
