@@ -1,21 +1,37 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2015",
-    "removeComments": true,
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "moduleResolution": "node",
-    "declaration": true,
-    "emitDecoratorMetadata": true,
+    "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "lib": [ "dom" ],
-    "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "skipLibCheck": true
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "paths": {
+      "simple-ng-websocket": [
+        "dist/simple-ng-websocket"
+      ]
+    },
+    "target": "es2020",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ]
   },
-  "exclude": [
-    "node_modules",
-    "test",
-    "doc"
-  ]
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
 }
